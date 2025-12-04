@@ -1,0 +1,35 @@
+.glass-container {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 15px;
+    padding: 25px;                   
+    margin: 30px auto;              
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    max-width: 1200px;                 
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.4);
+}
+.title-text {
+    color: white;                    
+    text-align: center;
+    font-weight: bold;
+    font-size: 2rem;
+    letter-spacing: 2px;
+}
+body {
+    background: url('your-background.jpg') no-repeat center center/cover;
+    min-height: 100vh;        
+}
+.nav-link {
+    color: black;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #ff4655;
+    transform: translateY(-2px);
+}
+.nav-link.active {
+    color: #ff4655;
+}
