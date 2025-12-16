@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Valorant Weapons</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+
+    <div class="container glass-container mt-4 p-4">
+      <div class="row align-items-center">
+        <div class="col-12 col-md-3">
+          <h2 class="header-title">Weapons</h2>
+        </div>
+        <div class="col-12 col-md-9 text-end">
+          <a href="index.html" class="nav-link fw-semibold">Home</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container mt-4">
+      <input
+        type="text"
+        id="weaponSearch"
+        class="form-control"
+        placeholder="Search Weapons"
+      />
+    </div>
+
+    <div class="container mt-5">
+      <div class="row" id="weapons-container"></div>
+    </div>
+
+    <script>
+      var weaponsContainer = document.getElementById("weapons-container");
+      var weaponSearch = document.getElementById("weaponSearch");
+      var weaponsData = [];
+
+      fetch("https://valorant-api.com/v1/weapons")
+        .then(function (response) {
+          return response.json();
+        })
+        .then(function (data) {
+          weaponsData = data.data;
+          displayWeapons(weaponsData);
+        })
+        .catch(function (error) {
+          console.log("Error fetching weapons:", error);
+        });
+
+      function displayWeapons(weapons) {
+        weaponsContainer.innerHTML = "";
+
+        for (var i = 0; i < weapons.length; i++) {
+          var weapon = weapons[i];
+
+          if (!weapon.displayIcon) continue;
+
+          var type = weapon.shopData
+            ? weapon.shopData.category
+            : weapon.category;
+
+          if (type) {
+            type = type.replace("::", "");
+            if (type === "EEquippableCategoryMelee") {
+              type = "Melee";
+            }
+          } else {
+            type = "Unknown";
+          }
+
+          var card = document.createElement("div");
+          card.className = "col-6 col-md-4 col-lg-3 mb-4";
+
+          card.innerHTML =
+            '<div class="card agent-card h-100 text-center">' +
+            '<img src="' +
+            weapon.displayIcon +
+            '" class="card-img-top p-3" alt="' +
+            weapon.displayName +
+            '">' +
+            '<div class="card-body">' +
+            '<h5 class="card-title">' +
+            weapon.displayName +
+            "</h5>" +
+            '<p class="card-text small">' +
+            type +
+            "</p>" +
+            "</div>" +
+            "</div>";
+
+          weaponsContainer.appendChild(card);
+        }
+      }
+
+      weaponSearch.addEventListener("input", function () {
+        var searchValue = weaponSearch.value.toLowerCase();
+
+        var filteredWeapons = weaponsData.filter(function (weapon) {
+          return weapon.displayName.toLowerCase().includes(searchValue);
+        });
+
+        displayWeapons(filteredWeapons);
+      });
+    </script>
+  </body>
+</html>

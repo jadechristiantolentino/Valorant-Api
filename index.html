@@ -1,45 +1,53 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Valorant</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-    <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-
+  <body>
     <div class="container glass-container mt-4 p-4">
-        <div class="row align-items-center">
-
-
-            <div class="col-12 col-md-3 text-center text-md-start">
-                <h2 class="header-title">Valorant</h2>
-            </div>
-
-
-            <div class="col-12 col-md-9">
-                <ul class="nav justify-content-md-end justify-content-center">
-                    <li class="nav-item"><a class="nav-link fw-semibold me-4" href="#">Agents</a></li>
-                    <li class="nav-item"><a class="nav-link fw-semibold me-4" href="#projects">Arsenal</a></li>
-                    <li class="nav-item"><a class="nav-link fw-semibold" href="#contacts">Maps</a></li>
-                </ul>
-            </div>
-
+      <div class="row align-items-center">
+        <div class="col-12 col-md-3 text-center text-md-start">
+          <h2 class="header-title">VALORANT</h2>
         </div>
-    </div>
-    <video src="video/Veto Official Gameplay Reveal __ VALORANT - VALORANT (1080p, h264).mp4" class="object-fit-cover"
-        autoplay loop muted></video>
-    </div>
-    </div>
-    </div>
+        <div class="col-12 col-md-9">
+          <ul class="nav justify-content-md-end justify-content-center">
+            <li class="nav-item">
+              <a class="nav-link fw-semibold me-4" href="agents.html">Agents</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link fw-semibold" href="weapons.html">Weapons</a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+    <div class="container mt-4">
+      <div class="hero-video-container">
+        <video autoplay loop muted playsinline>
+          <source
+            src="video/Untouchable - Valorant Edit.mp4"
+            type="video/mp4"
+          />
+        </video>
 
+          <div class="hero-buttons">
+            <a href="agents.html" class="btn btn-danger me-3">Explore Agents</a>
+            <a href="weapons.html" class="btn btn-outline-light"
+              >Explore Weapons</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
